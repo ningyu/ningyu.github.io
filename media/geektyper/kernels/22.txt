@@ -1,0 +1,349 @@
+Username: ag54348
+Password: ********************
+
+%!DATA root
+
+\begin{codeblock}
+00A8, 00AA, 00AD, 00AF, 00B2-00B5, 00B7-00BA, 00BC-00BE, 00C0-00D6, 00D8-00F6, 00F8-00FF
+
+0100-167F, 1681-180D, 180F-1FFF
+
+200B-200D, 202A-202E, 203F-2040, 2054, 2060-206F
+
+2070-218F, 2460-24FF, 2776-2793, 2C00-2DFF, 2E80-2FFF
+
+3004-3007, 3021-302F, 3031-303F
+
+3040-D7FF
+
+F900-FD3D, FD40-FDCF, FDF0-FE44, FE47-FFFD
+
+10000-1FFFD, 20000-2FFFD, 30000-3FFFD, 40000-4FFFD, 50000-5FFFD,
+  60000-6FFFD, 70000-7FFFD, 80000-8FFFD, 90000-9FFFD, A0000-AFFFD,
+  B0000-BFFFD, C0000-CFFFD, D0000-DFFFD, E0000-EFFFD
+\end{codeblock}
+
+\rSec1[charname.disallowed]{Ranges of characters disallowed initially}
+
+\begin{codeblock}
+0300-036F, 1DC0-1DFF, 20D0-20FF, FE20-FE2F
+\end{codeblock}
+
+\rSec0[atomics]{Atomic operations library}
+
+\rSec1[atomics.general]{General}
+
+\pnum
+This Clause describes components for fine-grained atomic access. This access is
+provided via operations on atomic objects.
+
+\pnum
+The following subclauses describe atomics requirements and components for types
+and operations, as summarized below.
+
+\begin{libsumtab}{Atomics library summary}{tab:atomics.lib.summary}
+\ref{atomics.order} & Order and Consistency   &
+  \\
+\ref{atomics.lockfree}  & Lock-free Property   &
+  \\
+\ref{atomics.types.generic} & Atomic Types   & \tcode{<atomic>}
+  \\
+\ref{atomics.types.operations}  & Operations on Atomic Types &
+  \\
+\ref{atomics.flag}  & Flag Type and Operations   &
+  \\
+\ref{atomics.fences}  & Fences   &
+  \\
+\end{libsumtab}
+
+\rSec1[atomics.syn]{Header \tcode{<atomic>} synopsis}
+
+\indexlibrary{\idxhdr{atomic}}%
+\begin{codeblock}
+namespace std {
+  // \ref{atomics.order}, order and consistency
+  enum memory_order;
+  template <class T>
+    T kill_dependency(T y) noexcept;
+
+  // \ref{atomics.lockfree}, lock-free property
+  #define ATOMIC_BOOL_LOCK_FREE @\unspec@
+  #define ATOMIC_CHAR_LOCK_FREE @\unspec@
+  #define ATOMIC_CHAR16_T_LOCK_FREE @\unspec@
+  #define ATOMIC_CHAR32_T_LOCK_FREE @\unspec@
+  #define ATOMIC_WCHAR_T_LOCK_FREE @\unspec@
+  #define ATOMIC_SHORT_LOCK_FREE @\unspec@
+  #define ATOMIC_INT_LOCK_FREE @\unspec@
+  #define ATOMIC_LONG_LOCK_FREE @\unspec@
+  #define ATOMIC_LLONG_LOCK_FREE @\unspec@
+  #define ATOMIC_POINTER_LOCK_FREE @\unspec@
+
+  // \ref{atomics.types.generic}, generic types
+  template<class T> struct atomic;
+  template<> struct atomic<@\textit{integral}@>;
+  template<class T> struct atomic<T*>;
+
+  // \ref{atomics.types.operations.general}, general operations on atomic types
+  //  In the following declarations, \textit{atomic-type} is either
+  //  \tcode{atomic<T>} or a named base class for \tcode{T} from
+  //  Table~\ref{tab:atomics.integral} or inferred from Table~\ref{tab:atomics.typedefs} or from \tcode{bool}.
+  // If it is \tcode{atomic<T>}, then the declaration is a template
+  // declaration prefixed with \tcode{template <class T>}.
+  bool atomic_is_lock_free(const volatile @\textit{atomic-type}@*) noexcept;
+  bool atomic_is_lock_free(const @\textit{atomic-type}@*) noexcept;
+  void atomic_init(volatile @\textit{atomic-type}@*, T) noexcept;
+  void atomic_init(@\textit{atomic-type}@*, T) noexcept;
+  void atomic_store(volatile @\textit{atomic-type}@*, T) noexcept;
+  void atomic_store(@\textit{atomic-type}@*, T) noexcept;
+  void atomic_store_explicit(volatile @\textit{atomic-type}@*, T, memory_order) noexcept;
+  void atomic_store_explicit(@\textit{atomic-type}@*, T, memory_order) noexcept;
+  T atomic_load(const volatile @\textit{atomic-type}@*) noexcept;
+  T atomic_load(const @\textit{atomic-type}@*) noexcept;
+  T atomic_load_explicit(const volatile @\textit{atomic-type}@*, memory_order) noexcept;
+  T atomic_load_explicit(const @\textit{atomic-type}@*, memory_order) noexcept;
+  T atomic_exchange(volatile @\textit{atomic-type}@*, T) noexcept;
+  T atomic_exchange(@\textit{atomic-type}@*, T) noexcept;
+  T atomic_exchange_explicit(volatile @\textit{atomic-type}@*, T, memory_order) noexcept;
+  T atomic_exchange_explicit(@\textit{atomic-type}@*, T, memory_order) noexcept;
+  bool atomic_compare_exchange_weak(volatile @\textit{atomic-type}@*, T*, T) noexcept;
+  bool atomic_compare_exchange_weak(@\textit{atomic-type}@*, T*, T) noexcept;
+  bool atomic_compare_exchange_strong(volatile @\textit{atomic-type}@*, T*, T) noexcept;
+  bool atomic_compare_exchange_strong(@\textit{atomic-type}@*, T*, T) noexcept;
+  bool atomic_compare_exchange_weak_explicit(volatile @\textit{atomic-type}@*, T*, T, 
+    memory_order, memory_order) noexcept;
+  bool atomic_compare_exchange_weak_explicit(@\textit{atomic-type}@*, T*, T,
+    memory_order, memory_order) noexcept;
+  bool atomic_compare_exchange_strong_explicit(volatile @\textit{atomic-type}@*, T*, T,
+    memory_order, memory_order) noexcept;
+  bool atomic_compare_exchange_strong_explicit(@\textit{atomic-type}@*, T*, T,
+    memory_order, memory_order) noexcept;
+
+  // \ref{atomics.types.operations.templ}, templated operations on atomic types
+  template <class T>
+    T atomic_fetch_add(volatile @atomic<T>@*, T) noexcept;
+  template <class T>
+    T atomic_fetch_add(@atomic<T>@*, T) noexcept;
+  template <class T>
+    T atomic_fetch_add_explicit(volatile atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_add_explicit(atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_sub(volatile atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_sub(atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_sub_explicit(volatile atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_sub_explicit(atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_and(volatile atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_and(atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_and_explicit(volatile atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_and_explicit(atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_or(volatile atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_or(atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_or_explicit(volatile atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_or_explicit(atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_xor(volatile atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_xor(atomic<T>*, T) noexcept;
+  template <class T>
+    T atomic_fetch_xor_explicit(volatile atomic<T>*, T, memory_order) noexcept;
+  template <class T>
+    T atomic_fetch_xor_explicit(atomic<T>*, T, memory_order) noexcept;
+
+  // \ref{atomics.types.operations.arith}, arithmetic operations on atomic types
+  // In the following declarations, \textit{atomic-integral} is either
+  // \tcode{atomic<T>} or a named base class for \tcode{T} from
+  // Table~\ref{tab:atomics.integral} or inferred from Table~\ref{tab:atomics.typedefs}.
+  // If it is \tcode{atomic<T>}, then the declaration is a template
+  // specialization declaration prefixed with \tcode{template <>}.
+
+  @\textit{integral}@ atomic_fetch_add(volatile @\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_add(@\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_add_explicit(volatile @\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_add_explicit(@\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_sub(volatile @\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_sub(@\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_sub_explicit(volatile @\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_sub_explicit(@\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_and(volatile @\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_and(@\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_and_explicit(volatile @\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_and_explicit(@\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_or(volatile @\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_or(@\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_or_explicit(volatile @\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_or_explicit(@\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_xor(volatile @\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_xor(@\textit{atomic-integral}@*, @\textit{integral}@) noexcept;
+  @\textit{integral}@ atomic_fetch_xor_explicit(volatile @\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+  @\textit{integral}@ atomic_fetch_xor_explicit(@\textit{atomic-integral}@*, @\textit{integral}@, memory_order) noexcept;
+
+  // \ref{atomics.types.operations.pointer}, partial specializations for pointers
+
+  template <class T>
+    T* atomic_fetch_add(volatile atomic<T*>*, ptrdiff_t) noexcept;
+  template <class T>
+    T* atomic_fetch_add(atomic<T*>*, ptrdiff_t) noexcept;
+  template <class T>
+    T* atomic_fetch_add_explicit(volatile atomic<T*>*, ptrdiff_t, memory_order) noexcept;
+  template <class T>
+    T* atomic_fetch_add_explicit(atomic<T*>*, ptrdiff_t, memory_order) noexcept;
+  template <class T>
+    T* atomic_fetch_sub(volatile atomic<T*>*, ptrdiff_t) noexcept;
+  template <class T>
+    T* atomic_fetch_sub(atomic<T*>*, ptrdiff_t) noexcept;
+  template <class T>
+    T* atomic_fetch_sub_explicit(volatile atomic<T*>*, ptrdiff_t, memory_order) noexcept;
+  template <class T>
+    T* atomic_fetch_sub_explicit(atomic<T*>*, ptrdiff_t, memory_order) noexcept;
+
+  // \ref{atomics.types.operations.req}, initialization
+  #define ATOMIC_VAR_INIT(value) @\seebelow@
+
+  // \ref{atomics.flag}, flag type and operations
+  struct atomic_flag;
+  bool atomic_flag_test_and_set(volatile atomic_flag*) noexcept;
+  bool atomic_flag_test_and_set(atomic_flag*) noexcept;
+  bool atomic_flag_test_and_set_explicit(volatile atomic_flag*, memory_order) noexcept;
+  bool atomic_flag_test_and_set_explicit(atomic_flag*, memory_order) noexcept;
+  void atomic_flag_clear(volatile atomic_flag*) noexcept;
+  void atomic_flag_clear(atomic_flag*) noexcept;
+  void atomic_flag_clear_explicit(volatile atomic_flag*, memory_order) noexcept;
+  void atomic_flag_clear_explicit(atomic_flag*, memory_order) noexcept;
+  #define ATOMIC_FLAG_INIT @\seebelow@
+
+  // \ref{atomics.fences}, fences
+  extern "C" void atomic_thread_fence(memory_order) noexcept;
+  extern "C" void atomic_signal_fence(memory_order) noexcept;
+}
+\end{codeblock}
+
+\rSec1[atomics.order]{Order and consistency}
+
+\begin{codeblock}
+namespace std {
+  typedef enum memory_order {
+    memory_order_relaxed, memory_order_consume, memory_order_acquire, 
+    memory_order_release, memory_order_acq_rel, memory_order_seq_cst
+  } memory_order;
+}
+\end{codeblock}
+
+\pnum
+The enumeration \tcode{memory_order} specifies the detailed regular
+(non-atomic) memory synchronization order as defined in
+\ref{intro.multithread} and may provide for operation ordering. Its
+enumerated values and their meanings are as follows:
+
+\begin{itemize}
+\item \tcode{memory_order_relaxed}: no operation orders memory.
+
+\item \tcode{memory_order_release}, \tcode{memory_order_acq_rel}, and
+\tcode{memory_order_seq_cst}: a store operation performs a release operation on the
+affected memory location.
+
+\item \tcode{memory_order_consume}: a load operation performs a consume operation on the
+affected memory location.
+
+\item \tcode{memory_order_acquire}, \tcode{memory_order_acq_rel}, and
+\tcode{memory_order_seq_cst}: a load operation performs an acquire operation on the
+affected memory location.
+\end{itemize}
+
+\enternote Atomic operations specifying \tcode{memory_order_relaxed} are relaxed
+with respect to memory ordering. Implementations must still guarantee that any
+given atomic access to a particular atomic object be indivisible with respect
+to all other atomic accesses to that object. \exitnote
+
+\pnum
+An atomic operation \term{A} that performs a release operation on an atomic
+object \term{M} synchronizes with an atomic operation \term{B} that performs
+an acquire operation on \term{M} and takes its value from any side effect in the
+release sequence headed by \term{A}.
+
+\pnum
+There shall be a single total order \textit{S} on all \tcode{memory_order_seq_cst}
+operations, consistent with the ``happens before'' order and modification orders for all
+affected locations, such that each \tcode{memory_order_seq_cst} operation
+\textit{B} that loads a
+value from an atomic object \textit{M}
+observes one of the following values:
+
+\begin{itemize}
+\item the result of the last modification \textit{A} of \textit{M} that precedes
+\textit{B} in \textit{S}, if it exists, or
+
+\item if \textit{A} exists, the result of some modification of \textit{M}
+that is not
+\tcode{memory_order_seq_cst} and that does not happen before \textit{A}, or
+
+\item if \textit{A} does not exist, the result of some modification of \textit{M}
+that is not
+\tcode{memory_order_seq_cst}.
+\end{itemize}
+
+\enternote Although it is not explicitly required that \textit{S} include locks, it can
+always be extended to an order that does include lock and unlock operations, since the
+ordering between those is already included in the ``happens before'' ordering. \exitnote
+
+\pnum
+For an atomic operation \textit{B} that reads the value of an atomic object \textit{M},
+if there is a \tcode{memory_order_seq_cst} fence \textit{X} sequenced before \textit{B},
+then \textit{B} observes either the last \tcode{memory_order_seq_cst} modification of
+\textit{M} preceding \textit{X} in the total order \textit{S} or a later modification of
+\textit{M} in its modification order.
+
+\pnum
+For atomic operations \textit{A} and \textit{B} on an atomic object \textit{M}, where
+\textit{A} modifies \textit{M} and \textit{B} takes its value, if there is a
+\tcode{memory_order_seq_cst} fence \textit{X} such that \textit{A} is sequenced before
+\textit{X} and \textit{B} follows \textit{X} in \textit{S}, then \textit{B} observes
+either the effects of \textit{A} or a later modification of \textit{M} in its
+modification order.
+
+\pnum
+For atomic operations \textit{A} and \textit{B} on an atomic object \textit{M}, where
+\textit{A} modifies \textit{M} and \textit{B} takes its value, if there are
+\tcode{memory_order_seq_cst} fences \textit{X} and \textit{Y} such that \textit{A} is
+sequenced before \textit{X}, \textit{Y} is sequenced before \textit{B}, and \textit{X}
+precedes \textit{Y} in \textit{S}, then \textit{B} observes either the effects of
+\textit{A} or a later modification of \textit{M} in its modification order.
+
+\pnum
+For atomic modifications \textit{A} and \textit{B} of an atomic object \textit{M},
+\textit{B} occurs later than \textit{A} in the modification order of \textit{M} if:
+
+\begin{itemize}
+\item there is a \tcode{memory_order_seq_cst} fence \textit{X} such that \textit{A}
+is sequenced before \textit{X}, and \textit{X} precedes \textit{B} in \textit{S}, or
+\item there is a \tcode{memory_order_seq_cst} fence \textit{Y} such that \textit{Y}
+is sequenced before \textit{B}, and \textit{A} precedes \textit{Y} in \textit{S}, or
+\item there are \tcode{memory_order_seq_cst} fences \textit{X} and \textit{Y} such that \textit{A}
+is sequenced before \textit{X}, \textit{Y} is sequenced before \textit{B},
+and \textit{X} precedes \textit{Y} in \textit{S}.
+\end{itemize}
+
+
+\pnum
+\enternote \tcode{memory_order_seq_cst} ensures sequential consistency only for a
+program that is free of data races and uses exclusively \tcode{memory_order_seq_cst}
+operations. Any use of weaker ordering will invalidate this guarantee unless extreme
+care is used. In particular, \tcode{memory_order_seq_cst} fences ensure a total order
+only for the fences themselves. Fences cannot, in general, be used to restore sequential
+consistency for atomic operations with weaker ordering specifications. \exitnote
+
+\pnum
+Implementations should ensure that no ``out-of-thin-air'' values are computed that
+circularly depend on their own computation.
+
+\enternote For example, with \tcode{x} and \tcode{y} initially zero,

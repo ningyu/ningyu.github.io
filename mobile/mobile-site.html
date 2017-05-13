@@ -1,0 +1,324 @@
+﻿<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>您有一个的重要来电，请及时接听</title>
+		<link rel="stylesheet" type="text/css" href="css/skin.css">
+		<script type="text/javascript">
+			// 如果不是移动端浏览则跳回index.html
+			if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+			{
+				window.location.href="../index.html";
+			}
+		
+			//缩放比例
+			if(/Android (\d+\.\d+)/.test(navigator.userAgent))
+			{
+				var version = parseFloat(RegExp.$1);
+				if(version > 2.3)
+				{
+					var phoneScale = parseInt(window.screen.width) / 640;
+					document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+				}
+				else
+				{
+					document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+				}
+			}
+			else
+			{
+				document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+			}
+
+			if(document.documentElement.clientHeight < 920)
+			{
+				document.write('<link rel="stylesheet" type="text/css" href="css/skin2.css">');
+			}
+			else
+			{
+			}
+		</script>
+	</head>
+	
+	<body>
+        <!-- 加载进度 -->
+		<div class="loading-wrapper">
+			<div class="spinner">
+				<img src='http://p1.bqimg.com/567571/4cc4c3ac5c6ce26e.png'>
+			</div>
+			正在加载（<span class="progress">0%</span>）...
+		</div>
+		
+		<div id="mySwiper" class="swiper-container" style='visibility:hidden;'>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide page1 1pg swiper-no-prev swiper-no-next" data-page="1">
+                    <!-- # 背景图 # -->
+					<div class='bg page1_bg'></div>
+					
+                    <!-- # IOS桌面 # -->
+					<div class='temp1'>
+                        <!-- 信息 -->
+						<div class='icons icons_message'>
+							<img src='http://p1.bpimg.com/567571/03b29c5984d82b4c.png'><span>12</span>
+						</div>
+                        <!-- 日历 -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/568648cb8838feb2.png'>
+						</div>
+                        <!-- 照片 -->
+						<div class='icons'>
+							<img src='http://i1.piimg.com/567571/747db3af599e6635.png'>
+						</div>
+                        <!-- 相机 -->
+						<div class='icons'>
+							<img src='http://p1.bpimg.com/567571/abdda435fb6284e7.png'>
+						</div>
+                        <!-- 交通银行 -->
+						<div class='icons'>
+							<img src='http://i1.piimg.com/567571/4ada539a99ff4a77.png'><span>5</span>
+						</div>
+                        <!-- 时钟 -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/e46a38f3715e5d7e.png'>
+						</div>
+                        <!-- QQ -->
+						<div class='icons'>
+							<img src='http://p1.bpimg.com/567571/daaed6427992147b.png'><span>43</span>
+						</div>
+                        <!-- 天气 -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/64cee5e18f61a7bb.png'>
+						</div>
+                        <!-- 微信 -->
+						<div class='icons icons_wx'>
+							<img src='http://p1.bpimg.com/567571/46ee410251596e68.png'><span>32</span>
+						</div>
+                        <!-- 支付宝 -->
+						<div class='icons icons_zfb'>
+							<img src='http://i1.piimg.com/567571/7c391b08936ce8f8.png'><span>60</span>
+						</div>
+                        <!-- 陌陌 -->
+						<div class='icons icons_mm'>
+							<img src='http://p1.bqimg.com/567571/363da8fd99064838.png'><span>20</span>
+						</div>
+                        <!-- Passbook -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/386fb1cd0a6343a3.png'>
+						</div>
+                        <!-- 设置 -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/d18f68aec8772c35.png'>
+						</div>
+                        <!-- FaceTime -->
+						<div class='icons'>
+							<img src='http://i1.piimg.com/567571/9edd96efcaf3e925.png'>
+						</div>
+                        <!-- 腾讯视频 -->
+						<div class='icons'>
+							<img src='http://p1.bqimg.com/567571/3a6227305072d63a.png'>
+						</div>
+                        <!-- 翻页圆点 -->
+						<div class='dian'>
+							<img src='http://i1.piimg.com/567571/d53f69cb0ffa7388.png'>
+						</div>
+                        <!-- 底部大图标：电话、邮件、Safari、音乐 -->
+						<div class='btn_icon'></div>
+					</div>
+				
+                    <!-- # 微信对话 # -->
+					<div class="temp2">
+						<div class='zhezhao'></div>
+                        
+						<div class='tishi'>
+                            <!-- 你收到一到微信消息 -->
+							<div class='xiaoxi'><img src='http://p1.bqimg.com/567571/3832798d4c7619e1.png'></div>
+                            <!-- 关闭按钮 -->
+							<div class='leftbtn'><img src='http://i1.piimg.com/567571/bae6a9046e5c3db0.png'></div>
+                            <!-- 打开按钮 -->
+							<div class='rightbtn'><img src='http://i1.piimg.com/567571/1f0c4ac7857ea4c7.png'></div>
+						</div>
+                        
+						<div class="weixin">
+                            <!-- 顶部标题 -->
+							<div class='wx wx0'><img src='http://i1.piimg.com/567571/a677b9e1d933b9d6.png'><p>微信(33)</p></div>
+                            <!-- 郭姐 -->
+							<div class='wx wx4'><img src='http://p1.bpimg.com/567571/c2e1cd8d8adbaf0a.png'><span>1</span></div>
+                            <!-- tommy仔 -->
+							<div class='wx wx5'><img src='http://i1.piimg.com/567571/01c873f6f2db350c.png'><span>1</span></div>
+                            <!-- Blanca -->
+							<div class='wx wx6'><img src='http://i1.piimg.com/567571/b74b6cb709483917.png'></div>
+                            <!-- QQ安全中心 -->
+							<div class='wx wx7'><img src='http://p1.bqimg.com/567571/f40406a082c7e66c.png'></div>
+                            <!-- 电影红花会-亲友群 -->
+							<div class='wx wx9'><img src='http://i1.piimg.com/567571/62837e1a3da2ce33.png'></div>
+                            <!-- 姚娜Joan -->
+							<div class='wx wx10'><img src='http://i1.piimg.com/567571/fbadaac03bba36d1.png'></div>
+                            <!-- 夏天  -->
+							<div class='wx wx11'><img src='http://i1.piimg.com/567571/e7e754cdc81911c6.png'></div>
+                            <!-- 底部：微信、通讯录、发现、我 -->
+							<div class='wx wx8'><img src='http://p1.bqimg.com/567571/f633a378721c4a62.png'></div>
+						</div>
+                        
+						<div class="xinxi">
+                            <!-- 顶部标题 -->
+							<div class='xx wx_title'><img src='http://i1.piimg.com/567571/a677b9e1d933b9d6.png'><p>BOSS</p></div>
+                            <!-- 郭姐消息正文 -->
+                            <div class='xx zhuxx xx2'><img src='http://p1.bpimg.com/567571/a329f862be14dc67.png'></div>
+                            <!-- tommy消息正文 -->
+							<div class='xx zhuxx xx4'><img src='http://i1.piimg.com/567571/024632bd6fc98342.png'></div>
+                            <!-- 微信消息发送条 -->
+							<div class='xx xx6'><img src='http://i1.piimg.com/567571/44c0c549d9b7c8c6.png'></div>
+						</div>
+                        
+						<div class='tishi2'>
+                            <!-- 你将退出微信 -->
+							<div class='xiaoxi2'><img src='http://p1.bqimg.com/567571/0a032dc6b0452b32.png'></div>
+                            <!-- 取消按钮 -->
+							<div class='leftbtn2'><img src='http://p1.bqimg.com/567571/4f27f9651497be5a.png'></div>
+                            <!-- 确认按钮 -->
+							<div class='rightbtn2'><img src='http://p1.bqimg.com/567571/078f8a7794f84e86.png'></div>
+						</div>
+					</div>
+					
+                    <!-- # 两条短信息 # -->
+					<div class="temp3">
+						<div class='zhezhao'></div>
+						<div class='message'>
+                            <!-- 老李：欠的钱再缓缓 -->
+							<div class='mm m1'><img src='http://p1.bqimg.com/567571/42d1f6c7e784921f.png'></div>
+                            <!-- 老张：去酒吧穿帮了 -->
+							<div class='mm m2'><img src='http://i1.piimg.com/567571/66ccb5630f1fcab9.png'></div>
+                            <!-- 关闭按钮 -->
+							<div class='leftbtn2'><img src='http://p1.bpimg.com/567571/0c150757fe634cdc.png'></div>
+						</div>
+					</div>
+				
+                    <!-- # 支付宝消息 # -->
+					<div class="temp4">
+						<div class='fuceng'></div>
+                        <!-- 你有一笔代付申请需要付款、关闭、打开 -->
+						<div class="zhifubaotishi">
+							<div class='zfts zs1'><img src='http://i1.piimg.com/567571/264546c0c1998035.png'></div>
+							<div class='zfts zs2'><img src='http://i1.piimg.com/567571/bae6a9046e5c3db0.png'></div>
+							<div class='zfts zs3'><img src='http://i1.piimg.com/567571/1f0c4ac7857ea4c7.png'></div>
+						</div>
+                        <!-- 残忍拒绝、果断支付 -->
+						<div class="shenqingzhifu">
+							<div class="sqzf sq1"></div>
+							<div class="sqzf sq2"><img src='http://i1.piimg.com/567571/d94c3f196704ee75.png'></div>
+							<div class="sqzf sq3"><img src='http://i1.piimg.com/567571/babdcce76e5326c1.png'></div>
+						</div>
+                        <!-- 你的账户余额不足、选择其他付款方式 -->
+						<div class="zhifubaotuichu">
+							<div class='zfbtc zc1'><img src='http://p1.bpimg.com/567571/e355718ff887a0f1.png'></div>
+							<div class='zfbtc zc3'><img src='http://i1.piimg.com/567571/8b555066be485ad1.png'></div>
+						</div>
+					</div>
+				
+                    <!-- # 电话呼入 # -->
+					<div class="temp6">
+                        <!-- 来电提示 -->
+						<div class="call_tishi">
+                            <!-- 来电背景 -->
+							<div class="call cl1"><img src='http://p1.bqimg.com/567571/1bee3382c000feb6.png'></div>
+                            <!-- 拒绝按钮 -->
+							<div class="call cl2"><img src='http://p1.bqimg.com/567571/b108e1413cf0f770.png'></div>
+                            <!-- 接听按钮-->
+							<div class="call cl3"><img src='http://p1.bqimg.com/567571/8cb26bd3bb743bf3.png'></div>
+                            <!-- 挂断按钮 -->
+							<div class="call cl4"><img src='http://p1.bqimg.com/567571/e11dd2e9acc79673.png'></div>
+                            <!-- 接通后背景 -->
+							<div class="call cl5"><img src='http://p1.bqimg.com/567571/8ebd1cc3e59c1953.jpg'></div>
+						</div>
+					
+                        <!-- 消息框乱弹 -->
+						<div class="luantan">
+							<div class='ltxx lt1'><img src='http://p1.bqimg.com/567571/0a793be829de5573.png'></div>
+							<div class='ltxx lt2'><img src='http://p1.bqimg.com/567571/c853ba5d288dc7f0.png'></div>
+							<div class='ltxx lt3'><img src='http://i1.piimg.com/567571/029c0ff1e204f7b5.png'></div>
+							<div class='ltxx lt4'><img src='http://i1.piimg.com/567571/00e5f9fffc22110e.png'></div>
+							<div class='ltxx lt5'><img src='http://p1.bpimg.com/567571/39a9c154e7e4a12a.png'></div>
+							<div class='ltxx lt6'><img src='http://p1.bqimg.com/567571/40e7bbefaa7e3e82.png'></div>
+							<div class='ltxx lt7'><img src='http://p1.bqimg.com/567571/3832798d4c7619e1.png'></div>
+							<div class='ltxx lt8'><img src='http://i1.piimg.com/567571/264546c0c1998035.png'></div>
+							<div class='ltxx lt9'><img src='http://p1.bqimg.com/567571/0a793be829de5573.png'></div>
+							<div class='ltxx lt10'><img src='http://p1.bqimg.com/567571/c853ba5d288dc7f0.png'></div>
+							<div class='ltxx lt11'><img src='http://i1.piimg.com/567571/029c0ff1e204f7b5.png'></div>
+							<div class='ltxx lt12'><img src='http://i1.piimg.com/567571/00e5f9fffc22110e.png'></div>
+							<div class='ltxx lt13'><img src='http://p1.bpimg.com/567571/39a9c154e7e4a12a.png'></div>
+							<div class='ltxx lt14'><img src='http://p1.bqimg.com/567571/40e7bbefaa7e3e82.png'></div>
+							<div class='ltxx lt15'><img src='http://p1.bqimg.com/567571/3832798d4c7619e1.png'></div>
+							<div class='ltxx lt16'><img src='http://i1.piimg.com/567571/264546c0c1998035.png'></div>
+							<div class='ltxx lt17'><img src='http://p1.bpimg.com/567571/6320a350ead3e378.jpg'></div>
+						</div>
+					</div>
+				
+                    <!-- # 腾讯视频宣传 # -->
+					<div class="temp7">
+						<div class='fuceng3'></div>
+						<div class="jingjing_tishi">
+                            <!-- 你想静静吗？其实生活还有另外一种可能 -->
+							<div class='jjts js1'><img src='http://p1.bpimg.com/567571/6fadcdd9be9527c3.png'></div>
+                            <!-- 查看 -->
+							<div class='jjts js2'><img src='http://p1.bpimg.com/567571/993109d625d19298.png'></div>
+						</div>
+						<div class="fengdi_box">
+							<div class="fengdi fd1"><img src='http://p1.bqimg.com/567571/68cb94017d6070ba.png'></div>
+							<div class="fengdi fd2"><img src='http://p1.bqimg.com/567571/eb73073eb2e40776.png'></div>
+							<div class="fengdi fd3"><img src='http://i1.piimg.com/567571/75bfbe840a797a5d.png'></div>
+							<div class="fengdi fd4"><img src='http://p1.bpimg.com/567571/da5ed0807322a15e.png'></div>
+							<div class="fengdi fd5"><img src='http://i1.piimg.com/567571/3f86fed1739dcd63.png'></div>
+							<div class="fengdi fd6"><img src='http://i1.piimg.com/567571/77f6a0e27df0786b.png'></div>
+							<div class="fengdi fd7"><img src='http://i1.piimg.com/567571/38433777c68a2f0a.png'></div>
+							<div class="fengdi fd8"><img src='http://i1.piimg.com/567571/4816650f11a3b60f.png'></div>
+						</div>
+					</div>
+                    
+                    <!-- # 来打我呀 # -->
+                    <div class="temp9" style="display: none; width: 50%; height: 50%; z-index: 10000; position: relative; top: 25%; margin: 0 auto;">
+                        <div class="jump"><img src='http://p1.bpimg.com/567571/e2247a5695de39bf.gif'></div>
+                    </div>
+				
+                    <!-- # 向下滑动箭头 # -->
+					<div class="shang">
+						<img src='http://i1.piimg.com/567571/b8c6bf0f06ad5333.png'>
+					</div>
+				</div>
+				
+				<div class="swiper-slide page1 swiper-no-prev" data-page="2">
+					<div class='bg page1_bg'></div>
+					<div class="temp8">
+                        <!-- 我们15个，平顶之上 -->
+						<div class="logo1"><img src='http://p1.bqimg.com/567571/9477b2dcc68fbd78.png'></div>
+                        <!-- 平顶之上，遇见自己，实现另一种可能 -->
+						<div class="fengdi3"><img src='http://p1.bqimg.com/567571/0847684d1d32a644.png'></div>
+                        <!-- 我们15个，6月23日与你相伴 -->
+						<div class="fengdi4"><img src='http://p1.bqimg.com/567571/3ad249e30175b62e.png'></div>
+                        <!-- 腾讯视频、东方卫视 -->
+						<div class="logo2"><img src='http://p1.bpimg.com/567571/a513c68a2d7c91f5.png'></div>
+					</div>
+				</div>
+				
+				<div class="swiper-slide page1 swiper-no-prev swiper-no-next" data-page="3"></div>
+			</div>
+		</div>
+		
+		
+		<audio src="http://fdfs.xmcdn.com/group23/M0B/D1/62/wKgJL1i5YFOTj2Y6AAAXCDR6VDA443.mp3" id="dxmusic"></audio><!-- js/duanxin2.mp3 -->
+		<audio src="http://fdfs.xmcdn.com/group22/M04/D0/9C/wKgJLli5YKjiB1FIAAGUdtOtnVg788.mp3" id="ldmusic"></audio><!-- js/laidian.mp3 -->
+		<audio src="http://fdfs.xmcdn.com/group24/M07/CE/FA/wKgJNVi5X_mChxwYAAH32YXJ5rY870.mp3" id="dianhua"></audio><!-- js/dianhua.mp3 -->
+		<audio src="http://fdfs.xmcdn.com/group19/M07/AF/CC/wKgJJli5X6GydLJoAADvXDG0zjM710.mp3" id="dxmusic2"></audio><!-- js/begin.mp3 -->
+		<audio src="http://fdfs.xmcdn.com/group17/M08/B0/24/wKgJKVi5YNmwfLxSAADE-igJAr0062.mp3" id="luanting"></audio><!-- js/luanting5.mp3 -->
+		<audio src="http://fdfs.xmcdn.com/group25/M0B/D0/40/wKgJMVi5XwCDyZInABB1TQs1VXI687.mp3" id="zhuti"></audio><!-- js/ab.mp3 -->
+		
+		
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/idangerous.swiper-2.6.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.transit.js"></script>
+		<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript" src="js/swiper.js"></script>
+		<script type="text/javascript" src="js/ban-debug.js"></script>
+		<script type="text/javascript" src="js/ban-f12-huanleduo.js"></script>
+	</body>
+</html>

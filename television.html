@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Tony Joseph's private web site portal.">
+        <meta name="keywords" content="Website personal blog resume project">
+        <meta name="author" content="Tony Joseph">
+        <title>这家伙，你瞅你睡滴，跟植物鱼似的。</title>
+        
+        <link rel="stylesheet" href="assets/television.min.e9ca1ae7.css">
+        
+        <script src="assets/television.min.efe3dc8f.js"></script>
+		
+		<!-- <script type="text/javascript" src="js/ban-debug.js"></script> -->
+    </head>
+    
+    <body>
+		<div id="webcam" style="margin: 100px auto;">
+			<img src="images/television/antenna.png" alt="">
+			<span>Tony-TV</span>
+			<div>
+				<a onclick="playPause(this);">
+					<img src="images/television/icon_filter.png" alt="切换视频源">
+				</a>
+			</div>
+			<embed id="youkuVideo" src='http://player.youku.com/player.php/sid/XMTMzNDIxNDM1Ng==/v.swf' allowFullScreen='true' quality='high' width='320' height='240' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+			<video id="localVideo" poster="images/television/empty.png" width="320" height="240" controls="controls" style="display:none;">
+				<source src="media/television/woodOrCrocodile.mp4" type="video/mp4">
+				<source src="media/television/woodOrCrocodile.ogg" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+        
+		<script>
+    		document.onkeydown = function(e)
+    		{
+    			e = e ? e : window.event; 
+    		    var keyCode = e.which ? e.which : e.keyCode;
+    		    
+    			if(keyCode == 123)
+    			{
+    			    alert("逆子，还不快退下，反了你了还！！！");
+    			}
+    			return false;
+    		}
+    		document.oncontextmenu = function(e)
+    		{
+    			e.preventDefault();
+    			e.stopPropagation();
+    			return false;
+    		}
+    		
+			var myVideo = $("video")[0];
+			myVideo.volume = 0.3;
+			
+			myVideo.addEventListener('ended', function() 
+			{  
+			    console.log("演完啦，散场了，坐最后排那对儿搁那旮亲嘴儿的小情侣，我们要开灯了哦！");
+			    setTimeout("myVideo.load();", 2000);
+			}, false);
+			
+			function playPause()
+			{
+				if ($("#youkuVideo").css("display") == "none")
+				{
+					$("#youkuVideo").show();
+					$("#localVideo").hide();
+				}
+				else if ($("#localVideo").css("display") == "none")
+				{
+					$("#youkuVideo").hide();
+					$("#localVideo").show();
+				}
+				
+				<!-- if (myVideo.paused)  -->
+				<!-- { -->
+					<!-- myVideo.play();  -->
+				<!-- } -->
+				<!-- else -->
+				<!-- { -->
+					<!-- myVideo.pause();  -->
+				<!-- } -->
+			}
+        </script>
+    </body>
+</html>

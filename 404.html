@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>404 - 页面找不到鸟</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<link rel="stylesheet" href="assets/404.min.13be213c.css" media="all">
+
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" type="text/css" href="css/404/ie8.css" />
+		<![endif]-->
+
+		<script src="assets/404.min.ec6e4630.js"></script>
+		
+
+		<script type="text/javascript">
+			$(document).ready(function()
+			{		
+				universalPreloader();	
+
+				siweiguangContextMenuInit();				
+			});
+
+			$(window).load(function()
+			{
+				//remove Universal Preloader
+				universalPreloaderRemove();
+				
+				rotate();
+				dogRun();
+				dogTalk();
+				
+				//Tipsy implementation
+				$('.with-tooltip').tipsy({gravity: $.fn.tipsy.autoNS});		   
+			});
+		</script>
+	</head>
+	
+	<body>
+		<!-- Universal preloader -->
+		<div id="universal-preloader">
+			<div class="preloader">
+				<img src="images/404/universal-preloader.gif" alt="universal-preloader" class="universal-preloader-preloader" />
+			</div>
+		</div>
+		<!-- Universal preloader -->
+
+		<div id="wrapper">
+			<!-- 404 graphic -->
+			<div class="graphic"></div>
+			<!-- /404 graphic -->
+			
+			<!-- Not found text -->
+			<div class="not-found-text">
+				<h1 class="not-found-text">文件未找到!</h1>
+			</div>
+			<!-- /Not found text -->
+
+			<!-- search form -->
+			<div class="search">
+				<form name="search" method="get" action="#" />
+					<input type="text" name="search" value="Search ..." />
+					<input class="with-tooltip" title="Search!" type="submit" name="submit" value="" />
+				</form>
+			</div>
+			<!-- /search form -->
+
+			<!-- top menu -->
+			<div class="top-menu">
+				<a href="index.html" class="with-tooltip" title="Return to the home page">首页</a> | <a href="#" class="with-tooltip" title="Navigate through our sitemap">站点地图</a> | <a href="#" class="with-tooltip" title="Contact us!">联系</a> | <a href="#" class="with-tooltip" title="Request additional help">帮助</a>
+			</div>
+			<!-- /top menu -->
+
+			<div class="dog-wrapper">
+				<!-- dog running -->
+				<div class="dog"></div>
+				<!-- /dog running -->
+				
+				<!-- dog bubble talking -->
+				<div class="dog-bubble">
+					
+				</div>
+				<!-- /dog bubble talking -->
+				
+				<!-- The dog bubble rotates these -->
+				<div class="bubble-options">
+					<p class="dog-bubble">
+						你迷路了吗，亲？别担心，我是一个非常好的向导！
+					</p>
+					<p class="dog-bubble">
+						<br />
+						 汪! 汪!
+					</p>
+					<p class="dog-bubble">
+						<br />
+						不用担心！我正在找涅！
+					</p>
+					<p class="dog-bubble">
+						我希望我能有一块饼干<br /><img style="margin-top:8px" src="images/404/cookie.png" alt="cookie" />
+					</p>
+					<p class="dog-bubble">
+						<br />
+						唉玛！太烦人了！
+					</p>
+					<p class="dog-bubble">
+						<br />
+						我越来越接近吗？
+					</p>
+					<p class="dog-bubble">
+						难道我只是在转圈？呃...
+					</p>
+					<p class="dog-bubble">
+						<br />
+						OK，我现在真的迷路了...
+					</p>
+					<p class="dog-bubble">
+						我想我刚刚看见了…… 一只 <br /><img style="margin-top:8px" src="images/404/cat.png" alt="cat" />
+					</p>
+					<p class="dog-bubble">
+						那么，我们到底在寻找神马涅？？ @_@
+					</p>
+				</div>
+				<!-- /The dog bubble rotates these -->
+			</div>
+
+			<!-- planet at the bottom -->
+			<div class="planet"></div>
+			<!-- planet at the bottom -->
+		</div>
+	</body>
+</html>

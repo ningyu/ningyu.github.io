@@ -1,0 +1,1 @@
+document.oncontextmenu=function(a){alert("逆子，还不快退下，反了你了还！！！"),a.preventDefault(),a.stopPropagation()};

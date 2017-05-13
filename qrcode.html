@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>收集二维码，召唤小神龙</title>
+        
+		<link rel="stylesheet" href="assets/qrcode.min.7826bcb5.css">
+       
+		<script src="assets/qrcode.min.33997020.js"></script>
+		
+		<script src="assets/colpick.min.72541472.js"></script>
+		
+        <!--[if lt IE 7]>
+        <script defer type="text/javascript" src="js/pngfix.js"></script>
+        <![endif]-->
+    </head>
+
+    <script type="text/javascript">
+		document.onkeydown = function(e)
+		{
+			e = e ? e : window.event; 
+			var keyCode = e.which ? e.which : e.keyCode;
+			
+			if(keyCode == 123)
+			{
+				alert("逆子，还不快退下，反了你了还！！！");
+			}
+			return false;
+		}
+		document.oncontextmenu = function(e)
+		{
+			e.preventDefault();
+			e.stopPropagation();
+			return false;
+		}
+        $(document).ready(function()
+        {
+            
+            /*Your ShineTime Welcome Image*/
+            var default_image = 'images/qrcode/large/default.jpg';
+            var default_caption = ' - Don\'t tiger me - ';
+            
+            /*Load The Default Image*/
+            loadPhoto(default_image, default_caption);
+            
+            function loadPhoto($url, $caption)
+            {
+                
+                /*Image pre-loader*/
+                showPreloader();
+                var img = new Image();
+                jQuery(img).load(function()
+                {
+                    jQuery(img).hide();
+                    hidePreloader();
+                    
+                }).attr({
+                    "src" : $url
+                });
+                
+                $('#largephoto').css('background-image', 'url("' + $url + '")');
+                $('#largephoto').data('caption', $caption);
+            }
+            
+            /* When a thumbnail is clicked*/
+            $('.thumb_container').click(function()
+            {
+                
+                var handler = $(this).find('.large_image');
+                var newsrc = handler.attr('src');
+                var newcaption = handler.attr('rel');
+                loadPhoto(newsrc, newcaption);
+            });
+            
+            /*When the main photo is hovered over*/
+            $('#largephoto').hover(function()
+            {
+                
+                var currentCaption = ($(this).data('caption'));
+                var largeCaption = $(this).find('#largecaption');
+                
+                largeCaption.stop();
+                largeCaption.css('opacity', '0.9');
+                largeCaption.find('.captionContent').html(currentCaption);
+                largeCaption.fadeIn()
+    
+                largeCaption.find('.captionShine').stop();
+                largeCaption.find('.captionShine').css("background-position", "-550px 0");
+                largeCaption.find('.captionShine').animate({
+                    /* update by tony, for jQuery 1.10.x+ do not support animate properties "backgroundPosition", origin -> backgroundPosition : '550px 0' */
+                    "background-position-x": "550px",  
+                    "background-position-y": "0px"
+                }, 700);
+                
+                Cufon.replace('.captionContent');
+                
+            },
+    
+            function()
+            {
+                var largeCaption = $(this).find('#largecaption');
+                largeCaption.find('.captionContent').html('');
+                largeCaption.fadeOut();
+                
+            });
+            
+            /* When a thumbnail is hovered over*/
+            $('.thumb_container').hover(function()
+            {
+                $(this).find(".large_thumb").stop().animate({
+                    marginLeft : -6,
+                    marginTop : -5
+                }, 200);
+                $(this).find(".large_thumb_shine").stop();
+                $(this).find(".large_thumb_shine").css("background-position", "-99px 0");
+                $(this).find(".large_thumb_shine").animate({
+                    /* update by tony, for jQuery 1.10.x+ do not support animate properties "backgroundPosition", origin -> backgroundPosition : '99px 0'*/
+                    "backgroundPositionX": "99px",  
+                    "backgroundPositionY": "0px"
+                }, 700);
+                
+            }, function()
+            {
+                $(this).find(".large_thumb").stop().animate({
+                    marginLeft : 0,
+                    marginTop : 0
+                }, 200);
+            });
+            
+            function showPreloader()
+            {
+                $('#loader').css('background-image', 'url("images/qrcode/interface/loader.gif")');
+            }
+            
+            function hidePreloader()
+            {
+                $('#loader').css('background-image', 'url("")');
+            }
+            
+        });
+    </script>
+
+
+    <body>
+        <!-- 二维码墙 -->
+        <div id="container" class="intro">
+            <div id="containertitle">集齐二维码，召唤小神龙</div>
+            <div class="mainframe">
+                <div id="largephoto">
+                    <div id="loader"></div>
+                    
+                    <div id="largecaption">
+                        <div class="captionShine"></div>
+                        <div class="captionContent"></div>
+                    </div>
+        
+                    <div id="largetrans"></div>
+                </div>
+            </div>
+            
+            <div class="thumbnails">
+                <br>
+                <br>
+                <br>
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_angrybird.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_angrybird.png" class="large_image" rel="Just because I can't code, doesn't mean I can't kick your ass!" />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_tank.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_tankwar.png" class="large_image" rel="Kick-Ass Is In Theatres Everywhere Now" />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_doraemon.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_doraemon.png" class="large_image" rel="I can't see through walls, but I can still kick your ass." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_landmine.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_landmine.png" class="large_image" rel="I won't bite, I promise!" />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_scarlett.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_scarlett.png" class="large_image" rel="We're going to..wait for it..kick your ass!" />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+     
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_pacman.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_pacman.png" class="large_image" rel="Using swords to open up that ketchup bottle may not have been the best idea.." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_tv.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_tv.png" class="large_image" rel="I can't be invisible, but I can kick your ass." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_tony.png" class="large_thumb_image" alt="thumb" />
+                            <img src="images/qrcode/large/qrcode_tony.png" class="large_image" rel="Dave Lizewski is a man in a green costume. He is Kick-Ass." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_sex.png" class="large_thumb_image" alt="thumb" />
+                            <img src="images/qrcode/large/qrcode_sex.png" class="large_image" rel="I probably shouldn't have yelled 'surprise' wearing this costume.." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_cup.png" class="large_thumb_image" alt="thumb" />
+                            <img src="images/qrcode/large/qrcode_cup.png" class="large_image" rel="I can't read your mind, but I can kick your ass." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_none.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_none.jpg" class="large_image" rel="I love that indented text effect up there. Not bad.." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_none.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_none.jpg" class="large_image" rel="I got your a present. It's an Ass-Kicking." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_none.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_none.jpg" class="large_image" rel="You don't have to be super to be a hero." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_none.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_none.jpg" class="large_image" rel="We Can Kick Ass - Anytime, Anyday." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+                <!-- start entry-->
+                <div class="thumbnailimage">
+                    <div class="thumb_container">
+                        <div class="large_thumb">
+                            <img src="images/qrcode/thumbnails/qrcode_none.png" class="large_thumb_image" alt="thumb" /> 
+                            <img src="images/qrcode/large/qrcode_none.jpg" class="large_image" rel="You know..I had this look first. Batman copied ME." />
+                            <div class="large_thumb_border"></div>
+                            <div class="large_thumb_shine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end entry-->
+        
+        
+        
+            </div>
+        </div>
+        
+        <!-- 气泡背景 -->
+        <div id="bubbles"></div>
+        
+        <!-- 背景设置开关 -->
+        <form id="settingSwitcher" style="left:-240px;visible:false;">
+            <a href="#">x</a>
+            <div>
+                <label>Color</label> <input type="text" value="#1D2833" id="color" style="background: #1D2833; color: #1D2833;" />
+            </div>
+            <div>
+                <label>Bubbles</label> <input class="slide" type="hidden" value="20" data-min="1" data-max="100" data-name="ammount" />
+            </div>
+            <div>
+                <label>Min size</label> <input class="slide" type="hidden" value="0.1" data-min="0.1" data-max="0.9" data-name="min" />
+            </div>
+            <div>
+                <label>Max size</label> <input class="slide" type="hidden" value="0.5" data-min="0.1" data-max="0.9" data-name="max" />
+            </div>
+            <div>
+                <label>Speed</label> <input class="slide" type="hidden" value="60" data-min="1" data-max="80" data-name="time" />
+            </div>
+            <div>
+                <label>Vertical</label> <input type="checkbox" id="vertical" checked="checked" />
+            </div>
+            <div>
+                <label>Horizontal</label> <input type="checkbox" id="horizontal" checked="checked" />
+            </div>
+            <div>
+                <label>Fullscreen</label> <input type="checkbox" id="fullscreen" checked="checked" />
+            </div>
+            <div>
+                <input type="button" id="update" value="Update" />
+            </div>
+        </form>
+    </body>
+</html>

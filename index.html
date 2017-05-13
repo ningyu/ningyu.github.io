@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Tony Joseph's private web site portal.">
+        <meta name="keywords" content="Website personal blog resume project">
+        <meta name="author" content="Tony Joseph">
+        <title>施主，你这是何苦……</title>
+        <link rel="shortcut icon" href="images/favicon.ico"> 
+        
+        <link rel="stylesheet" href="assets/index.min.3592cfe2.css">
+		
+		<link rel="stylesheet" href="assets/context_standalone.min.f1ffc7b6.css">
+		
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
+		</noscript>
+		
+		<style type="text/css">
+			{
+				scrollbar-face-color:#000;
+            	scrollbar-arrow-color:#000;
+            	scrollbar-3dlight-color:#000;
+            	scrollbar-highlight-color:#000;
+            	scrollbar-shadow-color:#000;
+            	scrollbar-darkshadow-color:#000;
+            	scrollbar-track-color:#000;
+            }
+            ::-webkit-scrollbar {
+            	width:14px;
+            }
+            ::-webkit-scrollbar-button {}
+            ::-webkit-scrollbar-track {
+            	background-color:#000;
+            }
+            ::-webkit-scrollbar-track-piece {
+            	background-color:#000;
+            	-webkit-border-radius:4px;
+            }
+            ::-webkit-scrollbar-thumb {
+            	background-color:#000;
+            	border:solid 1px #000;
+            	border-radius:4px;
+            }
+            ::-webkit-scrollbar-corner {
+            	background-color: #000;
+            }
+            ::-webkit-resizer {
+            	/*background-image: url(/public/img/resizer-inactive.png);*/
+            	background-repeat: no-repeat;
+            	background-position: bottom right;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+            	background-color:#000;
+            }
+    	</style>
+    </head>
+	
+    <body>
+        <div class="container portal-plain">
+        	<!-- 仿IOS通知 -->
+	    	<div id="iosNotification" class="notification" style="display:none;">
+	    		<div id="time"></div>
+	            <div class="notification-content">
+	            	<div class="notification-module notification-weather">
+	            		<span class="city">
+	            			<p class="local">当你看到这句话，哥们</p> <p>你中月读了</p>
+	            		</span>
+	            		<img src="images/cloudy_0.png" alt="cloudy" title="cloudy" />
+	            		<div class="notification-maxmin">
+	            			<span class="high">Fat</span>
+	            			<span class="low">Ugly</span>
+	            		</div>
+	            		<span class="current">Me</span>
+	            	</div>
+	            	<div class="notification-info">
+	            		<div class="notification-module notification-bar">
+	            			<img src="images/messages.png" title="messages"/><span>短信</span><div class="notification-close"></div>
+	            		</div>
+	            		<ul>
+	            			<li>
+	            				致辞
+	            				<span class="time">9:35 AM</span>
+	            				<div class="message">
+	            					尊敬的家人亲属，领导、财主，同学、朋友，以及不会黑我的客人，欢迎！<br>
+	            					如果您是以上身份请主动忽略后面两条消息。Y(^o^)Y
+	            				</div>
+	            			</li>
+	            		</ul>
+	            	</div>
+	            	<div class="notification-info">
+	            		<div class="notification-module notification-bar">
+	            			<img src="images/mail.png" title="mail" /><span>邮件</span><div class="notification-close"></div>
+	            		</div>
+	            		<ul>
+	            			<li>
+	            				大yé，来玩啊~
+	            				<span class="time">6:35 PM</span>
+	            				<div class="notification-message">青城山下白素贞，洞中千年修此身，小婊砸你可来啦。╮(¯^¯  ))╭ </div>
+	            			</li>
+	            		</ul>
+	            	</div>
+	            	<div class="notification-info">
+	            		<div class="notification-module notification-bar">
+	            			<img src="images/reminders.png" title="reminders" /><span>提醒</span><div class="notification-close"></div>
+	            		</div>
+	            		<ul>
+	            			<li>
+	            				站长本人
+	            				<span class="time">10:35 PM</span>
+	            				<div class="notification-message">
+	            					光看不回，老婆变肥！
+	            					凸( >﹏< )凸&nbsp;&nbsp;额，这就<a href="http://www.clingtony.com">去</a>……
+	            				</div>
+	            			</li>
+	            		</ul>
+	            	</div>
+	            	<span class="notification-center">No new notification</span>
+	            	<div class="clear"></div>
+	            </div>
+	            <div class="notification-handle">
+	            	<img src="images/handle.jpg" />
+	            </div>
+	            <div class="clr"></div>
+	        </div>
+	    	<!-- //仿IOS通知 -->
+        
+        	<!-- 警告通知 -->
+        	<div style="display:none;">
+        		<a id="forbidNotice" href="images/about/angry_face.jpg" rel="sexylightbox" title="哥们，冷静！！！">F-Twelve</a>
+        	</div>
+        	<!-- //警告通知 -->
+        	
+        	<!-- 右键菜单弹窗 -->
+        	<div style="display:none;">
+	        	<a id="authorInfo" href="author.html?TB_iframe=true&height=600&width=720" rel="sexylightbox">家穷人丑，卖得一手好萌</a>
+	        	<a id="authorClue" href="clue.html?TB_iframe=true&height=550&width=850" rel="sexylightbox" title="真相只有一个：站长是个二货！">Author-Clue</a>
+	        	<a id="tapePlayer" href="tape.html?TB_iframe=true&height=550&width=850" rel="sexylightbox">是谁在唱歌，温暖了寂寞</a>
+	        	<a id="friendlink" href="links.html?TB_iframe=true&height=550&width=850" rel="sexylightbox">最新国产高清无码交换链接</a>
+	        	<a id="videoPlayer" href="television.html?TB_iframe=true&height=550&width=850" rel="sexylightbox" title="人生有时候需要一份“爱亟魃谁谁的淡定”，以及一份“若是骑我头上装哔、践踏我的尊严，我TMD就nèng死你”的勇气。">这家伙，你瞅你睡滴，跟植物鱼似的。</a>
+	        	<a id="locationMap" href="map.html?TB_iframe=true&height=550&width=850" rel="sexylightbox" title="我挑着担，我牵着马，迎来日出，送走晚霞……">Baidu-Map </a>
+	        	<a id="haremPalace" href="harem.html?TB_iframe=true&height=550&width=850" rel="sexylightbox" title="“人丑嘴不甜，个矮还没钱”，本人男，逗逼以上、二逼未满，<s>真诚求能直立行走女友（限1名）</s> 。哥已售出，概不退货。是，不约！">Harem-Palace</a>
+        	</div>
+        	<!-- //右键菜单弹窗 -->
+        	
+        	<!-- 友情画廊 -->
+        	<div style="display:none;">
+				<a id="solidify_switcher" href="images/about/kof/small/1.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="北风起、秋风凉"></a>
+				<a href="images/about/kof/small/2.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="谁家娇妻守空房" ></a>
+				<a href="images/about/kof/small/3.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="动似猛虎静似狼" ></a>
+				<a href="images/about/kof/small/4.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="你有困难我帮忙" ></a>
+				<a href="images/about/kof/small/5.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="我住隔壁我姓王" ></a>
+				<a href="images/about/kof/small/6.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="文能挂机骂队友" ></a>
+				<a href="images/about/kof/small/7.gif?TB_iframe=true&height=261&width=320&background=white" rel="sexylightbox[inveigle]" title="武能越塔送人头" ></a>
+				<a href="images/about/accompany.jpeg?TB_iframe=true&height=465&width=465&background=white" rel="sexylightbox[inveigle]" title="<a href='http://www.clingtony.com'>↗ </a>，带你犯贱到天黑。跟我耍酷跟我帅，跟我呆萌到天外。" ></a>
+				<!--
+				<a id="qrcode_switcher" href="images/about/qrcode/qrcode_angrybird_white.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="啊~~~Piu~~~  要是不识别直接下一张" ></a>
+        		<a href="images/about/qrcode/qrcode_pacman_white.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="Bii~~~Bii~~~ 扫不粗来就换下一张哈"></a>
+				<a href="images/about/qrcode/qrcode_doraemon_white.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="先森，香皂旁边介个二维码是你掉的不？~~~ 不行？过……" ></a>
+				<a href="images/about/qrcode/qrcode_durex.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="哥们，别怕，洒家真是直的。还扫不出来？你那是啥破手机……" ></a>
+				<a href="images/about/qrcode/qrcode_scarlett.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="骚年，千万别放弃成功去码的机会哦 (╭￣3￣)╭ ♡" ></a>
+				<a href="images/about/qrcode/qrcode_pang.png?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="…… ……" ></a>
+				<a href="images/about/qrcode/qrcode_www.clingtony.com.jpg?TB_iframe=true&height=500&width=500" rel="sexylightbox[group_qrcode]" title="你走你的过街天桥，我过我的地下通道，你这智商，咱没法做盆友了！" ></a>
+				-->
+        	</div>
+        	<!-- //友情画廊 -->
+        	
+        	<!-- 约架画廊 -->
+        	<div style="display:none;">
+				<a href="http://i1.piimg.com/567571/16ef6ccad4bf1000.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="拳打南山敬老院" id="defiance_switcher" ></a>
+        		<a href="http://i1.piimg.com/567571/6fd984177bf43190.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="脚踢北海幼儿园"></a>
+				<a href="http://i1.piimg.com/567571/10eb8268eb18af9a.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="一米以下全撂倒" ></a>
+				<a href="http://i1.piimg.com/567571/aed82f00eb3dd7ba.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="太平间里一跺脚" ></a>
+				<a href="http://i1.piimg.com/567571/64474044dba05a6c.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="'不服滴全给我站起来'" ></a>
+				<a href="http://i1.piimg.com/567571/61badce55eebb21d.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="尻！" ></a>
+				<a href="http://i1.piimg.com/567571/3a2e66f6ef6b8317.gif?TB_iframe=true&height=300&width=300" rel="sexylightbox[group_defiance]" title="没一个敢放声的" ></a>
+				<a href="images/about/be_friend.jpg?TB_iframe=true&height=465&width=465" rel="sexylightbox[group_defiance]" title="好吧，虽然我这么厉害，但冤家易解不易结，我依然有心与你<a href='http://www.clingtony.com'>和解 </a>~" ></a>
+        	</div>
+        	<!-- //约架画廊 -->
+        	
+        	<!-- 仿Bash Terminal -->
+        	<div id="terminalDialog" title="Clingtony Terminal Simulator"></div>
+        	<!-- //仿Bash Terminal -->
+        
+        	<!-- 导航链接 -->
+            <nav id="navBar" class="nav-link" style="display:none;">
+				<a id="nav-huanleduo" class="current-navitem" href="index.html" title="2B青年欢乐多">欢乐多</a>
+				<a id="nav-siweiguang" href="index-opposite.html" title="神经病人思维广">思维广</a>
+			</nav>
+        	<!-- //导航链接 -->
+
+			<!-- 幻灯片 -->
+            <div id="slider" class="sl-slider-wrapper" style="display:none;">
+				<div class="sl-slider">
+					<div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+						<div class="sl-slide-inner">
+							<div class="deco" data-icon="H"></div>
+							<h2 title="你给我站住">U Give Me Stop</h2>
+							<blockquote>
+								<p>此山是我开，此树是我栽。要想打此过，留下买路财。牙蹦半个不，管杀不管埋。—— 虎子，咬他！</p>
+								<cite class="quoteIntro" title="走过路过，不要错过。">Go Past No Mistake Past.</cite>
+							</blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+						<div class="sl-slide-inner">
+							<div class="deco" data-icon="q"></div>
+							<h2 title="高B格">High B Grid</h2>
+							<blockquote>
+								<p>安然地度过了一生，死后安葬在宁静的故乡，野花轻轻覆盖我的墓碑，上面镌刻的六个大字清晰可辨：“活过，爱过，装过。”</p>
+								<cite class="quoteIntro" title="生存还是毁灭，二逼或者不二逼。">To be or not to be, 2B or not 2B.</cite>
+							</blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="deco" data-icon="O"></div>
+							<h2 title="无节操">Do Not Have Holiday Fuck</h2>
+							<blockquote>
+								<p>本文故事，纯属虚构。如有雷同，那就是说你呢。<br>~ 雅蔑蝶 ~&nbsp;&nbsp; －_－b.</p>
+								<cite class="quoteIntro" title="你就像沙滩上的阳光。">You are sun of a beach.</cite>
+							</blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-4" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="deco" data-icon="I"></div>
+							<h2 title="守底线">Hand Bottom Line</h2>
+							<blockquote>
+								<p>我的钱夹里除了纸币以外，就只剩下良知。</p>
+								<cite class="quoteIntro" title="如果别人朝你扔石头，就不要扔回去了，留着作你建高楼的基石。">If they throw stones at you, <br>Don’t throw back. <br>Use them to build your own foundation instead.</cite>
+							</blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-5" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="deco" data-icon="t"></div>
+							<h2 title="有情怀">Have Passion Bosom</h2>
+							<blockquote>
+								<p>当我真的再次看见回忆中耀眼的画面。双眼帮我拾起了我以为早已遗忘的梦。你想把逝日苦多的生命，捏成怎样的形状？</p>
+								<cite class="quoteIntro" title="混乱不是深渊，混乱是阶梯。">Chaos isn't a pit. Chaos is a ladder.</cite>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				
+				<nav id="nav-arrows" class="nav-arrows">
+					<span class="nav-arrow-prev">Previous</span>
+					<span class="nav-arrow-next">Next</span>
+				</nav>
+
+				<nav id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</nav>
+			</div>
+			<!-- //幻灯片 -->
+			
+			<!-- 关于 -->
+			<div id="titles">
+				<div id="credits" name="creditos">
+		            <div id="the-end">Clingtony.com</div>
+		            <br />
+		            <h1>Cast</h1>
+		            <dl>
+		                <dt>Founder</dt>
+		                <dd>Tony Joseph</dd>
+		                <dt>Creative</dt>
+		                <dd>专业通下水道</dd>
+		                <dt>Operations</dt>
+		                <dd>加勒比海豹</dd>
+		                <dt>Business</dt>
+		                <dd>野猪拱白菜</dd>
+		                <dt>Sales</dt>
+		                <dd>蜡笔小强</dd>
+		                <dt>Social Media</dt>
+		                <dd>长得败火</dd>
+		                <dt>Tecnical Suport</dt>
+		                <dd>采姑娘的小蘑菇</dd>
+		                <dt>Developer #1</dt>
+		                <dd>从良未遂</dd>
+		                <dt>Developer #2</dt>
+		                <dd>猴子请来的逗B</dd>
+		                <dt>Data Base Analysis</dt>
+		                <dd>罗纳尔刚刚好</dd>
+		                <dt>Designer #1</dt>
+		                <dd>奇怪的胖蜀黍</dd>
+		                <dt>Designer #2</dt>
+		                <dd>没子弹了吧</dd>
+		                <dt>Designer #3</dt>
+		                <dd>嫂子我哥呢</dd>
+		                <dt>Designer #4</dt>
+		                <dd>姐夫别这样</dd>
+						<dt>Tester</dt>
+		                <dd>洄(fei)而不逆(ni)</dd>
+		            </dl>
+		            <h1>Moderators</h1>
+		            <dl>
+		                <dt>Lead Moderator</dt>
+		                <dd>作得一手好死</dd>
+		                <dt>Moderator analysis</dt>
+		                <dd>丑人一生平安</dd>
+		                <dt>Moderator #1</dt>
+		                <dd>我和你妹真没啥</dd>
+		                <dt>Moderator #2</dt>
+		                <dd>体育老师长啥样</dd>
+		                <dt>Moderator #3</dt>
+		                <dd>卖得一手好萌</dd>
+		                <dt>Moderator #4</dt>
+		                <dd>阿拉灯神丁</dd>
+		            </dl>
+		            <h1>Special Thanks</h1>
+		            <p>Li Zhi wei, Hu Pan pan, Zheng Yi, Qiao Dan, Zhang Lu, and more...</p>
+		            <div class="clearfix"></div>
+		            <div class="clearfix"></div>
+		            <h1>Developed using</h1>
+		            <p>
+		                <img src="images/endcredits/microsoft.png">
+		                <img src="images/endcredits/eclipse.png">
+		                <img src="images/endcredits/jquery.png">
+		                <img src="images/endcredits/node.png">
+		                <img src="images/endcredits/javascript.png">
+		                <img src="images/endcredits/css3.png">
+		                <img src="images/endcredits/html5.png">
+		            </p>
+		            <h1>Powered by</h1>
+		            <p>
+		                <img src="images/endcredits/w3c.png" style="margin-left:50px;">
+		            </p>
+		            <h1>好吧，我承认了，上面的ID全都是我。</h1>
+		            <h1>Thank you for your visit!</h1>
+		            <div class="clearfix"></div>
+		            <div class="fineprint">
+		            	All trademarks are the property of the trademark owners.<br>
+		                &copy; <abbr title="Tony Joseph" class="initialism">Copyright by Tony Joseph</abbr> 2015 - ∞ <br>
+		                All rights reserved. 
+		            </div>
+		        </div>
+	    	</div>
+			<!-- //关于 -->
+        </div>
+        
+        <script src="assets/index.min.1f907ca2.js"></script>
+	</body>
+</html>

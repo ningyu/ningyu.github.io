@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Tony Joseph's private web site portal.">
+        <meta name="keywords" content="Website personal blog resume project">
+        <meta name="author" content="Tony Joseph">
+        <title>最新國產高清無碼換鏈.avi</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+		
+		<link rel="stylesheet" href="assets/links.min.c8ff4e5f.css">
+		
+		<!--[if lte IE 8]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+		<style>
+			body 
+			{
+				background-image: url(images/links/bg.jpg);
+			}
+		</style>
+    </head>
+	
+    <body style="height:450px;overflow:hidden;">
+        <div class="container">
+		
+			<header>
+				<h1><strong>Explanation:</strong> 换链要求</h1>
+				<h2>必须是说人话的个人Blog；原创内容太少的不换；涉黄的不换，但我会收藏。</h2>
+				<h2>博主是美女的，无视以上所有要求。</h2>
+				
+				<div class="support-note"><!-- let's check browser support with modernizr -->
+					<span class="no-csstransforms3d">CSS 3D transforms are not supported in your browser</span>
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+			</header>
+			
+			<section class="main friend-links">
+				
+				<div id="grid" class="grid clearfix">
+				
+					<div class="uc-container">
+						<div class="uc-initial-content">
+							<img src="images/links/thumbs/3.jpg" alt="image03" />
+							<span class="icon-eye"></span>
+						</div>
+						<div class="uc-final-content">
+							<img src="images/links/large/3.jpg" alt="image03-large" />
+							<div class="title"><h4>狂飙</h4> by Networm <a target="_blank" href="http://networm.me" class="icon-link"><img src="images/links/link.png" class="image-link" /></a></div>
+							<span class="icon-cancel"></span><!-- <img src="images/links/link.png" style="width: 20px;height: 20px;top: 5px;left: 5px;position: absolute;" /> -->
+						</div>
+					</div><!-- / uc-container -->
+
+					<div class="uc-container">
+						<div class="uc-initial-content">
+							<img src="images/links/thumbs/1.jpg" alt="image01" />
+							<span class="icon-eye"></span>
+						</div>
+						<div class="uc-final-content">
+							<img src="images/links/large/1.jpg" alt="image01-large" />
+							<div class="title"><h4>紅魚</h4> by Redfish <a target="_blank" href="http://dongliang.me" class="icon-link"><img src="images/links/link.png" class="image-link" /></a></div>
+							<span class="icon-cancel"></span>
+						</div>
+					</div><!-- / uc-container -->
+
+					<div class="uc-container">
+						<div class="uc-initial-content">
+							<img src="images/links/thumbs/2.jpg" alt="image02" />
+							<span class="icon-eye"></span>
+						</div>
+						<div class="uc-final-content">
+							<img src="images/links/large/2.jpg" alt="image02-large" />
+							<div class="title"><h4>毅-追梦</h4> by 一休哥 <a target="_blank" href="http://ee-dreamer.com/" class="icon-link"><img src="images/links/link.png" class="image-link" /></a></div>
+							<span class="icon-cancel"></span>
+						</div>
+					</div><!-- / uc-container -->
+
+					<div class="uc-container">
+						<div class="uc-initial-content">
+							<img src="images/links/thumbs/4.jpg" alt="image04" />
+							<span class="icon-eye"></span>
+						</div>
+						<div class="uc-final-content">
+							<img src="images/links/large/4.jpg" alt="image04-large" />
+							<div class="title"><h4>胡洋的独立博客</h4> by 福老师 <a target="_blank" href="http://huyang.me/" class="icon-link"><img src="images/links/link.png" class="image-link" /></a></div>
+							<span class="icon-cancel"></span>
+						</div>
+					</div><!-- / uc-container -->
+
+				</div><!-- / grid -->
+			</section>
+
+		</div>
+		
+		<script src="assets/links.min.a1bb69e4.js"></script>
+		
+		<script type="text/javascript">
+			$(function() 
+			{
+
+				// say we want to have only one item opened at one moment
+				var opened = false;
+
+				$( '#grid > div.uc-container' ).each( function( i ) {
+
+					var $item = $( this ), direction;
+
+					switch( i ) {
+						case 0 : direction = ['right','bottom']; break;
+						case 1 : direction = ['left','bottom']; break;
+						case 2 : direction = ['right','top']; break;
+						case 3 : direction = ['left','top']; break;
+					}
+					
+					var pfold = $item.pfold( {
+						folddirection : direction,
+						speed : 300,
+						onEndFolding : function() { opened = false; },
+						centered : true
+					} );
+
+					$item.find( 'span.icon-eye' ).on( 'click', function() {
+
+						if( !opened ) {
+							opened = true;
+							pfold.unfold();
+						}
+
+
+					} ).end().find( 'span.icon-cancel' ).on( 'click', function() {
+
+						pfold.fold();
+
+					} );
+
+				} );
+				
+			});
+		</script>
+    </body>
+</html>

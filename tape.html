@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Tony Joseph's private web site portal.">
+        <meta name="keywords" content="Website personal blog resume project">
+        <meta name="author" content="Tony Joseph">
+		<title>介个卡带播放器又Q又弹</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+		
+		<!-- <link rel="stylesheet" type="text/css" href="css/tape/demo.css"> -->
+		<link rel="stylesheet" href="assets/tape.min.8022a821.css">
+    </head>
+	
+    <body>
+        <div class="container">
+			<header>
+				<div class="support-note">
+					<span class="no-cssanimations">CSS animations are not supported in your browser</span>
+					<span class="no-csstransforms">CSS transforms are not supported in your browser</span>
+					<span class="no-csstransforms3d">CSS 3D transforms are not supported in your browser</span>
+					<span class="no-csstransitions">CSS transitions are not supported in your browser</span>
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+			</header>
+
+			<div id="vc-container" class="vc-container">
+				<div class="vc-tape-wrapper">
+					<div class="vc-tape">
+						<div class="vc-tape-back">
+							<div class="vc-tape-wheel vc-tape-wheel-left"><div></div></div>
+							<div class="vc-tape-wheel vc-tape-wheel-right"><div></div></div>
+						</div>
+						<div class="vc-tape-front vc-tape-side-a">
+							<span>A</span>
+						</div>
+						<div class="vc-tape-front vc-tape-side-b">
+							<span>B</span>
+						</div>
+					</div>
+				</div>
+				<div class="vc-loader"></div>
+			</div>
+		</div>
+		
+
+		<script src="assets/tape.min.4b749040.js"></script>
+		
+		<script type="text/javascript">	
+			$(function()
+			{
+				
+				$('#vc-container').cassette(
+					{
+						songs: ['http://fdfs.xmcdn.com/group20/M0A/41/F1/wKgJJ1fs57jQFgd_AAWXTr6xVVU320.mp3', 'http://m2.music.126.net/Fm61IUw5IhUkzg0mfuRBJg==/18503681184345693.mp3', 'http://m2.music.126.net/2PFeKR9fAC57QcUElL6CVQ==/3241360280207787.mp3', 'http://m2.music.126.net/QfYdNvAuP8GAeyk3cW5emg==/7989051489062317.mp3', 'http://m2.music.126.net/rQa60oAeFWlHdbJXE4U5zQ==/5511851790121326.mp3', 'http://m2.music.126.net/cMndsSYU-40pnLS6lzxEMw==/2900511674657713.mp3']
+					}
+				);
+						
+			});
+		</script>
+    </body>
+</html>
